@@ -19,7 +19,7 @@ env:
   ARCHITECTURES: gfx908
   ROCM_PATH: /opt/rocm
   HIP_PATH: /opt/rocm/hip
-  ROCM_VERSION: 5.4
+  ROCM_VERSION: 5.7
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -39,7 +39,7 @@ jobs:
           echo 'deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/rocm-keyring.gpg] https://repo.radeon.com/rocm/apt/${{env.ROCM_VERSION}} focal main' | sudo tee /etc/apt/sources.list.d/rocm.list &&
           echo -e 'Package: *\nPin: release o=repo.radeon.com\nPin-Priority: 600' | sudo tee /etc/apt/preferences.d/rocm-pin-600 &&
           sudo apt update &&
-          sudo apt-get install -y build-essential python3-pip clang g++ rocm-dev hip-dev rocm-libs &&
+          sudo apt-get install -y build-essential python3-pip clang g++ rocm-hip-sdk &&
           python3 -m pip install --upgrade pip &&
           python3 -m pip install 'cmake==3.24.0'
 
