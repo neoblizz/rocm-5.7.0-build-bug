@@ -117,6 +117,7 @@ set(HIP_FLAGS
   -Wno-deprecated-builtins
   -Wno-ignored-attributes
   "-Wno-\#pragma-messages"
+  -I/opt/rocm/include
 )
 
 ####################################################
