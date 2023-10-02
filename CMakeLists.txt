@@ -36,6 +36,9 @@ set(PROJECT_DEPS_DIR externals)
 include(${PROJECT_SOURCE_DIR}/cmake/FetchHIP.cmake)
 # end /* Include cmake modules */
 
+find_package(rocprim REQUIRED CONFIG PATHS ${HIP_PATH} ${ROCM_PATH})
+find_package(rocthrust REQUIRED CONFIG PATHS ${HIP_PATH} ${ROCM_PATH})
+
 ## Set the directory where the binaries will be stored
 set(EXECUTABLE_OUTPUT_PATH
   ${PROJECT_BINARY_DIR}/bin
